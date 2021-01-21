@@ -1,0 +1,11 @@
+#!/bin/sh
+# affix colons on either side of $PATH to simplify matching
+case ":${PATH}:" in
+    *:"$HOME/.go/bin":*)
+        ;;
+    *)
+        # Prepending pathin case a system-installed go needs to be overridden
+        export PATH="$HOME/.go/bin:$PATH"
+        export PATH="$(go env GOPATH)/bin:$PATH"
+        ;;
+esac
