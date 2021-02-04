@@ -1,2 +1,2 @@
-;;; lang/+config.el -*- lexical-binding: t; -*
+;;; lang/config.el -*- lexical-binding: t; -*
 (load! "rust")

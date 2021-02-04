@@ -1,8 +1,9 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+(load! "editor/config")
 (load! "lang/config")
+(load! "module/config")
 (load! "misc")
-(load! "ui")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -20,3 +21,23 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Optimize garbage-collect
+;; Related variable: `gc-cons-threshold'
+(setq gc-cons-threshold 2147483648)
+;;
+;; Execute `garbage-collect' when emacs is idle for a specified time,
+;; and count the time consumed.
+;; (defmacro k-time (&rest body)
+;;   "Measure and return the time it takes evaluating BODY."
+;;   `(let ((time (current-time)))
+;;      ,@body
+;;      (float-time (time-since time))))
+;; (run-with-idle-timer 300 t
+;;                      (lambda ()
+;;                        (message "Garbage Collector has run for %.06fsec"
+;;                                 (k-time (garbage-collect)))))
+;;
+;; Execute `garbage-collect' when emacs is idle for a specified time.
+(run-with-idle-timer 300 t #'garbage-collect)
+
