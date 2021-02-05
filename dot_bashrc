@@ -18,3 +18,5 @@ export PATH
 # User specific aliases and functions
 alias sudo='sudo env PATH=$PATH'
 
+# Setup starship
+eval "$(starship init bash)"

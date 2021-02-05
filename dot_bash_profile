@@ -10,5 +10,3 @@ source "$HOME/.cargo/env"
 source "$HOME/.go/env"
 source "$HOME/.wasmtime/env"
 
-# Setup starship
-eval "$(starship init bash)"
