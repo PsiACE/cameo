@@ -15,8 +15,21 @@ export PATH
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
+# Custom history
+HISTCONTROL=ignoreboth
+HISTIGNORE="history:cd:exit:ls:pwd:man:clear"
+HISTTIMEFORMAT="[%F %T] > "
+
 # User specific aliases and functions
 alias sudo='sudo env PATH=$PATH'
+alias ls='ls -hF --color=auto'
+alias la='ls -ahF --color=auto'
+
+# Make dir like windows
+alias dir='ls --color=auto --format=long'
+
+# Highlight grep
+alias grep='grep --color=auto'
 
 # Setup starship
 eval "$(starship init bash)"
