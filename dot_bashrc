@@ -21,6 +21,7 @@ HISTIGNORE="history:cd:exit:ls:pwd:man:clear"
 HISTTIMEFORMAT="[%F %T] > "
 
 # User specific aliases and functions
+# Basic
 alias sudo='sudo env PATH=$PATH'
 alias ls='ls -hF --color=auto'
 alias la='ls -ahF --color=auto'
@@ -30,6 +31,12 @@ alias dir='ls --color=auto --format=long'
 
 # Highlight grep
 alias grep='grep --color=auto'
+
+# Utils
+youdao()
+{
+  w3m -dump "https://www.youdao.com/w/$1/#keyfrom=dict2.top" | grep "go top" -A 200 | tail -n +2 | more
+}
 
 # Setup starship
 eval "$(starship init bash)"
